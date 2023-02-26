@@ -6,6 +6,7 @@ import { Header } from '@/components/header';
 import ButtonGradient from '@/components/button-gradient';
 import Link from 'next/link';
 import ArrowRightSVG from '@/svgs/arrow-right-svg';
+import CoffeeAndCroissantSVG from '@/svgs/coffee-and-croissant-svg';
 
 const nunito = Nunito({
   subsets: ['latin'],
@@ -85,8 +86,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-1/4 bg-[url('/breakfasto/img/side-bg.svg')] bg-cover flex flex-col items-center p-8">
+          <div className="w-1/4 bg-[url('/breakfasto/img/side-bg.svg')] bg-cover flex flex-col items-center p-8 relative">
             <ButtonOutlinedRounded>{'Log In'}</ButtonOutlinedRounded>
+            <CoffeeAndCroissantSVG className="absolute top-36 right-20" />
           </div>
         </div>
       </main>

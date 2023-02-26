@@ -12,6 +12,7 @@ const nunito = Nunito({
   subsets: ['latin'],
   weight: ['400', '800', '900'],
   variable: '--font-nunito',
+  display: 'auto',
 });
 
 const nunitoSans = Nunito_Sans({
@@ -36,6 +37,30 @@ export default function Home() {
           'flex items-center justify-center h-screen main-bg',
         )}
       >
+        <div className="fixed top-0 left-0 bg-black/30 p-2">
+          <div>
+            <span className="text-stone-300 text-xs font-sans">
+              Created and designed by:{' '}
+            </span>
+            <Link
+              href="https://dribbble.com/Mansoor-Gull"
+              className="text-stone-100 text-xs font-sans"
+            >
+              {'Mansoor'}
+            </Link>
+          </div>
+          <div>
+            <span className="text-stone-300 text-xs font-sans">
+              Developed by:{' '}
+            </span>
+            <Link
+              href="https://github.com/nickmarca"
+              className="text-stone-100 text-xs font-sans"
+            >
+              {'Nick Marca'}
+            </Link>
+          </div>
+        </div>
         <div className="w-[68rem] h-[44rem] bg-gray-100 rounded-xl component-card flex overflow-hidden min-w-[1020px]">
           <div className="w-3/4 flex flex-col">
             <div className="px-24 py-12 flex-1">

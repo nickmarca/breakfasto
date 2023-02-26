@@ -1,9 +1,23 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from 'next/head';
+import { Nunito, Nunito_Sans } from '@next/font/google';
+import classNames from 'classnames';
+import ButtonOutlinedRounded from '@/components/button-outlined-rounded';
+import { Header } from '@/components/header';
+import ButtonGradient from '@/components/button-gradient';
+import Link from 'next/link';
+import ArrowRightSVG from '@/svgs/arrow-right-svg';
 
-const inter = Inter({ subsets: ['latin'] })
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '800', '900'],
+  variable: '--font-nunito',
+});
+
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-nunito-sans',
+});
 
 export default function Home() {
   return (
@@ -14,110 +28,90 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+      <main
+        className={classNames(
+          nunito.variable,
+          nunitoSans.variable,
+          'flex items-center justify-center h-screen main-bg',
+        )}
+      >
+        <div className="w-[68rem] h-[44rem] bg-gray-100 rounded-xl component-card flex overflow-hidden min-w-[1020px]">
+          <div className="w-3/4 flex flex-col">
+            <div className="px-24 py-12 flex-1">
+              <Header />
+              <div className="pr-20">
+                <div className={classNames(styles.headerContainer)}>
+                  <h1 className={classNames(styles.header)}>
+                    <span className="text-6xl">{`Hungry?`}</span>
+                    {` let’s make a yummy breakfast`}
+                  </h1>
+                </div>
+                <p className="font-sans text-stone-500/75 font-semibold mt-2 leading-5">
+                  A game of taste we make healthy and yummy breakfast with home
+                  deliver in seconds at north
+                </p>
+                <div className="mt-16 flex gap-10">
+                  <ButtonGradient>{'Order Now'}</ButtonGradient>
+                  <Link
+                    className="font-sans font-semibold text-sm text-stone-700 leading-10"
+                    href="/"
+                  >
+                    <span>{'Tour our kitched'}</span>
+                    <ArrowRightSVG className="inline fill-stone-700 mt-[-1px]" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="px-48 py-16 border-t-2 border-stone-200/85 flex">
+              <div className="flex-1 flex justify-center border-r-2 border-stone-200">
+                <div>
+                  <h3 className="font-sans font-semibold text-lg text-stone-700">
+                    {'40+ Breakfasts'}
+                  </h3>
+                  <p className="font-sans text-xs text-stone-500/75">
+                    {'most delicious'}
+                  </p>
+                </div>
+              </div>
+              <div className="flex-1 flex justify-center">
+                <div>
+                  <h3 className="font-sans font-semibold text-lg text-stone-700">
+                    {'Home Delivery'}
+                  </h3>
+                  <p className="font-sans text-xs text-stone-500/75">
+                    {'in town only'}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
+          <div className="w-1/4 bg-[url('/breakfasto/img/side-bg.svg')] bg-cover flex flex-col items-center p-8">
+            <ButtonOutlinedRounded>{'Log In'}</ButtonOutlinedRounded>
           </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
         </div>
       </main>
     </>
-  )
+  );
 }
+
+const styles = {
+  headerContainer: [
+    'mt-20',
+    'relative',
+    'before:w-20',
+    'before:h-20',
+    'before:rounded-full',
+    'before:absolute',
+    'before:bg-[#FFE7EA]',
+    'before:z-0',
+    'before:translate-x-[-50%]',
+  ],
+  header: [
+    'font-serif',
+    'text-comet',
+    'text-4xl',
+    'font-extrabold',
+    'z-10',
+    'relative',
+  ],
+};
